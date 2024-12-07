@@ -1,0 +1,120 @@
+Explanation of the Python Code:
+This Python code defines a simple banking system where users can create a bank account, deposit money, withdraw money, and check their balance. The system consists of two main classes:
+
+BankAccount: This class represents an individual bank account, and it allows operations like deposit, withdrawal, and balance checking.
+Bank: This class represents the bank itself, which manages multiple accounts and provides functionality for account creation and retrieval.
+Classes Breakdown:
+1. BankAccount Class:
+This class defines the operations for an individual bank account. It has the following methods:
+
+__init__(self, account_holder, account_balance=0):
+
+The constructor method initializes a bank account with an account holder's name (account_holder) and an initial balance (account_balance, default is 0).
+It assigns these values to instance variables (self.account_holder and self.account_balance).
+deposit(self, amount):
+
+This method allows the user to deposit money into their account.
+It checks if the amount is greater than 0. If so, it adds the amount to the account balance and prints the new balance.
+If the amount is less than or equal to 0, it prints an error message.
+withdraw(self, amount):
+
+This method allows the user to withdraw money from their account.
+It first checks if the amount is greater than 0. If not, it prints an error message.
+It then checks if the account has sufficient funds. If there are enough funds, it deducts the amount from the balance and prints the new balance.
+If there are insufficient funds, it prints an error message.
+check_balance(self):
+
+This method prints the current balance of the account.
+2. Bank Class:
+This class is responsible for managing multiple bank accounts. It has the following methods:
+
+__init__(self):
+
+The constructor method initializes an empty dictionary (self.accounts) to store all the bank accounts.
+Each account is indexed by the account holder's name.
+create_account(self, account_holder):
+
+This method creates a new account for a user by using the BankAccount class.
+It checks if an account already exists for the given account_holder. If not, it creates a new BankAccount object and stores it in the self.accounts dictionary.
+If an account already exists, it prints an error message.
+get_account(self, account_holder):
+
+This method retrieves an account for a given account holder.
+If an account exists for the account_holder, it returns the corresponding BankAccount object.
+If no account exists for the given name, it prints an error message and returns None.
+3. main() Function:
+This function serves as the entry point of the program. It provides an interactive menu for the user to perform various banking operations:
+
+The user can choose from five options:
+
+Create Account: Prompts the user to enter their name and creates a new account.
+Deposit Money: Prompts the user for an account holder's name and the deposit amount, then deposits the money into the account.
+Withdraw Money: Prompts the user for an account holder's name and the withdrawal amount, then performs the withdrawal.
+Check Balance: Prompts the user for an account holder's name and shows the account's current balance.
+Exit: Exits the program.
+The loop continues to prompt the user for an action until the user chooses to exit.
+
+Example Interaction:
+
+--- Welcome to the Bank ---
+1. Create Account
+2. Deposit Money
+3. Withdraw Money
+4. Check Balance
+5. Exit
+Please enter your choice: 1
+Enter account holder's name: Alice
+Account created for Alice
+
+--- Welcome to the Bank ---
+1. Create Account
+2. Deposit Money
+3. Withdraw Money
+4. Check Balance
+5. Exit
+Please enter your choice: 2
+Enter account holder's name: Alice
+Enter amount to deposit: 500
+Deposited 500. New balance: 500
+
+--- Welcome to the Bank ---
+1. Create Account
+2. Deposit Money
+3. Withdraw Money
+4. Check Balance
+5. Exit
+Please enter your choice: 3
+Enter account holder's name: Alice
+Enter amount to withdraw: 200
+Withdrew 200. New balance: 300
+
+--- Welcome to the Bank ---
+1. Create Account
+2. Deposit Money
+3. Withdraw Money
+4. Check Balance
+5. Exit
+Please enter your choice: 4
+Enter account holder's name: Alice
+Current balance: 300
+
+--- Welcome to the Bank ---
+1. Create Account
+2. Deposit Money
+3. Withdraw Money
+4. Check Balance
+5. Exit
+Please enter your choice: 5
+Thank you for using the bank!
+
+
+
+Key Features:
+Creating accounts: Users can create multiple accounts with different account holders.
+Depositing and withdrawing money: Users can add or withdraw money as long as the conditions (positive amounts, sufficient balance) are met.
+Checking balance: Users can check their current account balance at any time.
+Error handling: Proper error handling is implemented for invalid deposit/withdrawal amounts and insufficient funds.
+Potential Enhancements:
+Interest Calculation: You could implement an interest calculation function for bank accounts.
+Account Deletion: Add functionality to delete accounts.
+Multi-user Bank: Extend the system to handle multiple users (e.g., using authentication).
